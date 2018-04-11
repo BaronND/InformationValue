@@ -34,11 +34,11 @@ class InformationValue:
             _x[numpy.where((x >= p1) & (x <= p2))] = i
         return _x
 
-    def get_woe_iv(self,x,y):
+    def get_woe_iv(self,x,y,discrete_count=None):
         self.check_binary(y)
         total_n0,total_n1 = self.value_count(y)
 
-        _x = self.discrete_feature(x)
+        _x = self.discrete_feature(x,discrete_count)
         n,m = x.shape
         woe = []
         iv = []
